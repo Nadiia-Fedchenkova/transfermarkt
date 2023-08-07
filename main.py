@@ -98,29 +98,28 @@ class transfermarktTeamPlayers():
                 'contract': Contracts_Transformed
             })
             table_name = url.split('.com/')[1].split('/')[0]
-            final_table.to_csv(f'results/{table_name}.csv')
+            #final_table.to_csv(f'results/{table_name}.csv')
             final_table.to_excel(f'results/{table_name}.xlsx')
-        return final_table.head()
 
 
-"""serie_b = [
-'https://www.transfermarkt.com/spezia-calcio/kader/verein/3522/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/parma-calcio-1913/kader/verein/130/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/us-cremonese/kader/verein/2239/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/uc-sampdoria/kader/verein/1038/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/pisa-sporting-club/kader/verein/4172/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/como-1907/kader/verein/1047/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/ssc-bari/kader/verein/332/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/modena-fc/kader/verein/1385/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/us-catanzaro/kader/verein/4097/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/fc-sudtirol/kader/verein/4554/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/ascoli-calcio/kader/verein/408/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/as-cittadella/kader/verein/4084/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/cosenza-calcio/kader/verein/4031/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/ternana-calcio/kader/verein/1103/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/ac-reggiana-1919/kader/verein/5621/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/feralpisalo/kader/verein/9439/saison_id/2023/plus/1',
-'https://www.transfermarkt.com/calcio-lecco-1912/kader/verein/5514/saison_id/2023/plus/1']
 
+belgium = [
+        'https://www.transfermarkt.com/krc-genk/kader/verein/1184/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/royale-union-saint-gilloise/kader/verein/3948/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/royal-antwerp-fc/kader/verein/1096/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/club-brugge-kv/kader/verein/2282/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/kaa-gent/kader/verein/157/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/rsc-anderlecht/kader/verein/58/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/standard-liege/kader/verein/3057/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/rsc-charleroi/kader/verein/172/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/oud-heverlee-leuven/kader/verein/2727/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/cercle-brugge/kader/verein/520/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/kvc-westerlo/kader/verein/968/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/kv-mechelen/kader/verein/354/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/kv-kortrijk/kader/verein/601/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/kas-eupen/kader/verein/1245/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/sint-truidense-vv/kader/verein/475/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/rwd-molenbeek/kader/verein/54189/saison_id/2023/plus/1'
+]
 new_parser = transfermarktTeamPlayers()
-new_parser.parse(serie_b)"""
+new_parser.parse(belgium)
