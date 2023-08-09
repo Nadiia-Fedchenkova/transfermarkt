@@ -3,66 +3,42 @@ from bs4 import BeautifulSoup
 import requests
 
 class transfermarktTeamPlayers():
-
+    def __init__(self, name):
+        self.name = name
     def parse(self, url_list):
-
         for url in url_list:
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0"
             }
             page_tree = requests.get(url, headers=headers)
             page_soup = BeautifulSoup(page_tree.content, 'html.parser')
-            Numbers = []
-            FullNames = []
-            Positions = []
-            DatesOfBirth = []
-            Nationalities = []
-            Heights = []
-            Feet = []
-            Contracts = []
-            DatesOfBirth_Transformed = []
-            Contracts_Transformed = []
 
             # extract player names
             Players = page_soup.find_all("img", {"class": "bilderrahmen-fixed lazy lazy"})
-            for i in range(0, len(Players)):
-                FullNames.append(str(Players[i]).split('" class', 1)[0].split('<img alt="', 1)[1])
+            FullNames = [str(Players[i]).split('" class', 1)[0].split('<img alt="', 1)[1] for i in
+                         range(0, len(Players))]
 
             # extract positions
             PositionList = page_soup.find_all("table", {"class": "inline-table"})
-            for position in PositionList:
-                Positions.append(str(position).split("<td>\n            ")[1].split("        </td>")[0])
+            Positions = [PositionList[i].find_all("td")[2].text.strip() for i in range(len(PositionList))]
 
             # data for other columns
             data = page_soup.find_all("td", {"class": "zentriert"})  # loop step = 8
             # [0]-number [1]-dob [2]-nationality [3]-height [4]-foot [7]-contract
 
-            # extract numbers
-            for i in range(0, len(data), 8):
-                Numbers.append(str(data[i]).split('nummer">')[1].split('</div')[0])
-
-            # extract dob
-            for i in range(1, len(data), 8):
-                DatesOfBirth.append(str(data[i]).split('zentriert">')[1].split(' (')[0])
-
-            # extract nationality
+            #extract data for numbers, dob, nationality, foot, contract yo lists
+            res = [data[i].find("div") for i in range(len(data))]
+            Numbers = [i.text for i in res if i]
+            DatesOfBirth = [data[i].text.split(' (')[0] for i in range(1, len(data), 8)]
+            Nationalities = []
             for i in range(2, len(data), 8):
                 countries = []
                 for item in str(data[i]).split('alt="')[1:]:
                     countries.append(item.split('" class="flaggenrahmen"')[0])
                 Nationalities.append(', '.join(countries))
-
-            # extract height
-            for i in range(3, len(data), 8):
-                Heights.append(str(data[i]).split('zentriert">')[1].split('m</td')[0])
-
-            # extract foot
-            for i in range(4, len(data), 8):
-                Feet.append(str(data[i]).split('zentriert">')[1].split('</td')[0])
-
-            # extract contract
-            for i in range(7, len(data), 8):
-                Contracts.append(str(data[i]).split('zentriert">')[1].split('</td')[0])
+            Heights = [data[i].text for i in range(3, len(data), 8)]
+            Feet = [data[i].text for i in range(4, len(data), 8)]
+            Contracts = [data[i].text for i in range(7, len(data), 8)]
 
             # transform DatesOfBirth, Contracts from "Apr 26, 1994" to "1994-04-26"
             month_dict = {
@@ -80,13 +56,16 @@ class transfermarktTeamPlayers():
                 'Dec': '12',
                 '-': ''
             }
-
+            DatesOfBirth_Transformed = []
             for dob in DatesOfBirth:
-                DatesOfBirth_Transformed.append(dob[-4:] + '.' + month_dict[dob[0:3]] + '.' + dob[4:6])
+                if dob != '-</td>':
+                    DatesOfBirth_Transformed.append(dob[-4:] + '.' + month_dict[dob[0:3]] + '.' + dob[4:6])
+                else:
+                    DatesOfBirth_Transformed.append('-')
 
-            for contract in Contracts:
-                Contracts_Transformed.append(contract[-4:] + '.' + month_dict[contract[0:3]] + '.' + contract[4:6])
+            Contracts_Transformed = [(c[-4:]+'.'+month_dict[c[0:3]]+'.'+c[4:6]) for c in Contracts]
 
+            #to dataframe
             final_table = pd.DataFrame({
                 'number': Numbers,
                 'name': FullNames,
@@ -97,29 +76,16 @@ class transfermarktTeamPlayers():
                 'foot': Feet,
                 'contract': Contracts_Transformed
             })
+
+            #write to file
             table_name = url.split('.com/')[1].split('/')[0]
             #final_table.to_csv(f'results/{table_name}.csv')
             final_table.to_excel(f'results/{table_name}.xlsx')
 
 
-
-belgium = [
-        'https://www.transfermarkt.com/krc-genk/kader/verein/1184/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/royale-union-saint-gilloise/kader/verein/3948/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/royal-antwerp-fc/kader/verein/1096/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/club-brugge-kv/kader/verein/2282/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/kaa-gent/kader/verein/157/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/rsc-anderlecht/kader/verein/58/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/standard-liege/kader/verein/3057/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/rsc-charleroi/kader/verein/172/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/oud-heverlee-leuven/kader/verein/2727/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/cercle-brugge/kader/verein/520/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/kvc-westerlo/kader/verein/968/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/kv-mechelen/kader/verein/354/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/kv-kortrijk/kader/verein/601/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/kas-eupen/kader/verein/1245/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/sint-truidense-vv/kader/verein/475/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/rwd-molenbeek/kader/verein/54189/saison_id/2023/plus/1'
+france = [
+    'https://www.transfermarkt.com/paris-saint-germain/kader/verein/583/saison_id/2023/plus/1'
 ]
-new_parser = transfermarktTeamPlayers()
-new_parser.parse(belgium)
+a = transfermarktTeamPlayers("new_parser")
+
+a.parse(france)
