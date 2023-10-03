@@ -5,6 +5,7 @@ import requests
 class transfermarktTeamPlayers():
     def __init__(self, name):
         self.name = name
+
     def parse(self, url_list):
         for url in url_list:
             headers = {
@@ -85,10 +86,29 @@ class transfermarktTeamPlayers():
                 #final_table.to_csv(f'results/{table_name}.csv')
                 final_table.to_excel(f'results/{table_name}.xlsx')
 
-
-france = [
-    'https://www.transfermarkt.com/paris-saint-germain/kader/verein/583/saison_id/2023/plus/1'
+premier_league = [
+    'https://www.transfermarkt.com/arsenal-fc/kader/verein/11/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/aston-villa/kader/verein/405/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/afc-bournemouth/kader/verein/989/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/brentford-fc/kader/verein/1148/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/burnley-fc/kader/verein/1132/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/brighton-amp-hove-albion/kader/verein/1237/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/chelsea-fc/kader/verein/631/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/crystal-palace/kader/verein/873/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/everton-fc/kader/verein/29/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/fulham-fc/kader/verein/931/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/liverpool-fc/kader/verein/31/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/luton-town/kader/verein/1031/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/manchester-city/kader/verein/281/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/manchester-united/kader/verein/985/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/newcastle-united/kader/verein/762/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/nottingham-forest/kader/verein/703/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/sheffield-united/kader/verein/350/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/tottenham-hotspur/kader/verein/148/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/west-ham-united/kader/verein/379/saison_id/2023/plus/1',
+    'https://www.transfermarkt.com/wolverhampton-wanderers/kader/verein/543/saison_id/2023/plus/1'
 ]
+
 a = transfermarktTeamPlayers("new_parser")
 
-a.parse(france)
+a.parse(premier_league)

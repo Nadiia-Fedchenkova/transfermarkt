@@ -1,25 +1,25 @@
 #SERIE A
 #benfica_url = 'https://www.transfermarkt.com/sl-benfica/kader/verein/294/saison_id/2023/plus/1'
-napoli_url = 'https://www.transfermarkt.com/ssc-napoli/kader/verein/6195/saison_id/2023/plus/1'
-lazio_url = 'https://www.transfermarkt.com/ss-lazio/kader/verein/398/saison_id/2023/plus/1'
-inter_url = 'https://www.transfermarkt.com/inter-milan/kader/verein/46/saison_id/2023/plus/1'
-milan_url = 'https://www.transfermarkt.com/ac-milan/kader/verein/5/saison_id/2023/plus/1'
-atalanta_url = 'https://www.transfermarkt.com/atalanta-bc/kader/verein/800/saison_id/2023/plus/1'
-roma_url = 'https://www.transfermarkt.com/as-roma/kader/verein/12/saison_id/2023/plus/1'
-juventus_url = 'https://www.transfermarkt.com/juventus-fc/kader/verein/506/saison_id/2023/plus/1'
-fiorentina_url = 'https://www.transfermarkt.com/acf-fiorentina/kader/verein/430/saison_id/2023/plus/1'
-bologna_url = 'https://www.transfermarkt.com/bologna-fc-1909/kader/verein/1025/saison_id/2023/plus/1'
-torino_url = 'https://www.transfermarkt.com/torino-fc/kader/verein/416/saison_id/2023/plus/1'
-monza = 'https://www.transfermarkt.com/ac-monza/kader/verein/2919/saison_id/2023/plus/1'
-udinese_url = 'https://www.transfermarkt.com/udinese-calcio/kader/verein/410/saison_id/2023/plus/1'
-sassuolo_url ='https://www.transfermarkt.com/us-sassuolo/kader/verein/6574/saison_id/2023/plus/1'
-empoli_url = 'https://www.transfermarkt.com/fc-empoli/kader/verein/749/saison_id/2023/plus/1'
-salernitana_url = 'https://www.transfermarkt.com/us-salernitana-1919/kader/verein/380/saison_id/2023/plus/1'
-lecce_url = 'https://www.transfermarkt.com/us-lecce/kader/verein/1005/saison_id/2023/plus/1'
-verona_url = 'https://www.transfermarkt.com/hellas-verona/kader/verein/276/saison_id/2023/plus/1'
-frosinone_url = 'https://www.transfermarkt.com/frosinone-calcio/kader/verein/8970/saison_id/2023/plus/1'
-genoa_url = 'https://www.transfermarkt.com/genoa-cfc/kader/verein/252/saison_id/2023/plus/1'
-cagliari_url = 'https://www.transfermarkt.com/cagliari-calcio/kader/verein/1390/saison_id/2023/plus/1'
+serie_a = ['https://www.transfermarkt.com/ssc-napoli/kader/verein/6195/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/ss-lazio/kader/verein/398/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/inter-milan/kader/verein/46/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/ac-milan/kader/verein/5/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/atalanta-bc/kader/verein/800/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/as-roma/kader/verein/12/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/juventus-fc/kader/verein/506/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/acf-fiorentina/kader/verein/430/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/bologna-fc-1909/kader/verein/1025/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/torino-fc/kader/verein/416/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/ac-monza/kader/verein/2919/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/udinese-calcio/kader/verein/410/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/us-sassuolo/kader/verein/6574/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/fc-empoli/kader/verein/749/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/us-salernitana-1919/kader/verein/380/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/us-lecce/kader/verein/1005/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/hellas-verona/kader/verein/276/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/frosinone-calcio/kader/verein/8970/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/genoa-cfc/kader/verein/252/saison_id/2023/plus/1',
+           'https://www.transfermarkt.com/cagliari-calcio/kader/verein/1390/saison_id/2023/plus/1']
 
 #SERIE_B
 
@@ -52,7 +52,7 @@ premier_league = [
     'https://www.transfermarkt.com/afc-bournemouth/kader/verein/989/saison_id/2023/plus/1',
     'https://www.transfermarkt.com/brentford-fc/kader/verein/1148/saison_id/2023/plus/1',
     'https://www.transfermarkt.com/burnley-fc/kader/verein/1132/saison_id/2023/plus/1',
-    'https://www.transfermarkt.com/brighton-amp-hove-albion/kader/verein/1237/saison_id/2023/plus/1'
+    'https://www.transfermarkt.com/brighton-amp-hove-albion/kader/verein/1237/saison_id/2023/plus/1',
     'https://www.transfermarkt.com/chelsea-fc/kader/verein/631/saison_id/2023/plus/1',
     'https://www.transfermarkt.com/crystal-palace/kader/verein/873/saison_id/2023/plus/1',
     'https://www.transfermarkt.com/everton-fc/kader/verein/29/saison_id/2023/plus/1',
@@ -110,6 +110,7 @@ portugal = [
     'https://www.transfermarkt.com/sc-farense/kader/verein/4294/saison_id/2023/plus/1',
     'https://www.transfermarkt.com/cf-estrela-amadora-sad/kader/verein/2431/saison_id/2023/plus/1'
 ]
+
 belgium = [
         'https://www.transfermarkt.com/krc-genk/kader/verein/1184/saison_id/2023/plus/1',
     'https://www.transfermarkt.com/royale-union-saint-gilloise/kader/verein/3948/saison_id/2023/plus/1',
@@ -172,10 +173,11 @@ brazil = [
     'https://www.transfermarkt.com/goias-ec/kader/verein/3197/saison_id/2022/plus/1',
     'https://www.transfermarkt.com/cuiaba-esporte-clube-mt-/kader/verein/28022/saison_id/2022/plus/1'
 ]
-print(len(premier_league))
-print(len(france))
-print(len(portugal))
-print(len(belgium))
-print(len(eredivisie))
-print(len(brazil))
-print(len(serie_b))
+print(f"premier_league {len(premier_league)}")
+print(f"france {len(france)}")
+print(f"portugal {len(portugal)}")
+print(f"belgium {len(belgium)}")
+print(f"eredivisie {len(eredivisie)}")
+print(f"brazil {len(brazil)}")
+print(f"serie_b {len(serie_b)}")
+print(f"serie_a {len(serie_a)}")
